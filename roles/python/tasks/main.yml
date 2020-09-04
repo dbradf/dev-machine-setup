@@ -20,7 +20,6 @@
       - python-openssl
     update_cache: yes
   become: True
-  with_items:
 
 - name: install pyenv
   shell: curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
