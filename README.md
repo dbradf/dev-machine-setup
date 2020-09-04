@@ -9,7 +9,7 @@ Currently only supporting Ubuntu.
 
 [ ] Generate SSH keys
 [ ] Add public key to github
-[ ] Install `python3-apt`, `git`
+[ ] Install `python3-apt`, `python3-venv`, and `git`
 [ ] Clone repo
 
 ### Running
