@@ -31,14 +31,7 @@
       when: not nvm_stat.stat.exists
 
   tasks:
-    - name: Clone mongo
-      repo: git@github.com:mongodb/mongo.git
-      dest: ~/mongo/mongo
-
-    - name: Clone evergreen.py
-      repo: git@github.com:evergreen-ci/evergreen.py.git
-      dest: ~/mongo/evergreen.py
-
-    - name: Clone shrub.py
-      repo: git@github.com:evergreen-ci/shrub.py.git
-      dest: ~/mongo/shrub.py
+    - name: Clone Repos
+      repo: "{{ item.url }}"
+      dest: ~/mongo/{{ item.name }}
+      with_items: "{{ mongo_repos }}"
