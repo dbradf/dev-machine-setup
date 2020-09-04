@@ -29,3 +29,9 @@
       when: not cargo_stat.stat.exists
     - role: node
       when: not nvm_stat.stat.exists
+
+  tasks:
+    - name: Clone Repos
+      repo: "{{ item.url }}"
+      dest: ~/mongo/{{ item.name }}
+      with_items: "{{ mongo_repos }}"

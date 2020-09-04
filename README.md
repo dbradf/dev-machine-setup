@@ -3,14 +3,15 @@
 Configuration to setup a development machine.
 
 Currently only supporting Ubuntu.
-## Using
+
+## Usage
 
 ### Setup Steps
 
-[ ] Generate SSH keys
-[ ] Add public key to github
-[ ] Install `python3-apt`, `python3-venv`, and `git`
-[ ] Clone repo
+- [ ] Generate SSH keys
+- [ ] Add public key to github
+- [ ] Install `python3-apt`, `python3-venv`, and `git`
+- [ ] Clone repo
 
 ### Running
 
