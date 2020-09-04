@@ -1,12 +1,12 @@
 - name: install dependencies
-  apt: pkg={{ item }} update_cache=yes
-  sudo: True
-  with_items:
-    - curl
+  apt: 
+    pkg: [curl] 
+    update_cache: yes
+  become: true
 
 - name: install rustup
-  shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 - name: install rust commands
   shell: cargo install {{ item }}
-  with_items: {{ rust_commands }}
+  with_items: "{{ rust_commands }}"

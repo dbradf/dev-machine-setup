@@ -1,5 +1,5 @@
 - name: Setup development machine
-  hosts: 
+  hosts: localhost
   vars_files: vars.yml
   pre_tasks:
     - name: Update the apt cache

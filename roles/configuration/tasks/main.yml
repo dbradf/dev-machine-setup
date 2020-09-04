@@ -1,9 +1,10 @@
 - name: install dependencies
-  apt: pkg={{ item }} update_cache=yes
-  sudo: True
-  with_items:
-    - git
-    - zsh
+  become: true
+  apt: 
+    pkg: 
+      - git
+      - zsh
+    update_cache: yes
 
 - name: checkout config directory
   git:
@@ -16,6 +17,7 @@
     chdir: ~/etc/configfiles
 
 - name: setup zsh
+  become: true
   user:
-    name: {{ ansible_user_id }}
+    name: "{{ ansible_user_id }}"
     shell: /bin/zsh
