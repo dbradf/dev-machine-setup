@@ -5,8 +5,20 @@
     - name: Update the apt cache
       become: true
       apt: update_cache=yes
+    
+    - name: Check for python install
+      stat: 
+        path: ~/.pyenv
+      register: pyenv_stat
+
+    - name: Check for rust install
+      stat: 
+        path: ~/.cargo
+      register: cargo_stat
 
   roles:
     - role: configuration
     - role: python
+      when: not pyenv_stat.exists
     - role: rust
+      when: not cargo_stat.exists

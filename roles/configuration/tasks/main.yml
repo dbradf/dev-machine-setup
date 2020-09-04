@@ -8,11 +8,11 @@
 
 - name: checkout config directory
   git:
-    repo: git@github.com:dbradf/configfiles.git
+    repo: "{{ configuration_repo }}"
     dest: ~/etc/configfiles
 
 - name: install configuration
-  shell: ./install
+  shell: "{{ configuration_install_cmd }}"
   args:
     chdir: ~/etc/configfiles
 

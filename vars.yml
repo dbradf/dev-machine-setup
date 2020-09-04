@@ -1,3 +1,6 @@
+
+configuration_repo: git@github.com:dbradf/configfiles.git
+
 python_versions:
   - 3.8.5
   - 3.7.9
