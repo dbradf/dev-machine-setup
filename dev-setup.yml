@@ -3,6 +3,7 @@
   vars_files: vars.yml
   pre_tasks:
     - name: Update the apt cache
+      become: true
       apt: update_cache=yes
 
   roles:

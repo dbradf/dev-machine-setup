@@ -25,14 +25,34 @@
   shell: curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 
 - name: install python versions
-  shell: pyenv install {{ item }}
+  shell: |
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+
+    pyenv install {{ item }}
   with_items: "{{ python_versions }}"
 
 - name: Configure global python version
-  shell: pyenv global {{ python_versions[0] }}
+  shell: |
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+
+    pyenv global {{ python_versions[0] }}
 
 - name: Install pipx
-  shell: pip install pipx
+  shell: |
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+
+    pip install pipx
 
 - name: Install poetry
-  shell: pipx install poetry
+  shell: |
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+
+    pipx install poetry
