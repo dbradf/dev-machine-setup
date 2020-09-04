@@ -19,6 +19,6 @@
   roles:
     - role: configuration
     - role: python
-      when: not pyenv_stat.exists
+      when: not pyenv_stat.stat.exists
     - role: rust
-      when: not cargo_stat.exists
+      when: not cargo_stat.stat.exists
