@@ -1,0 +1,10 @@
+python_versions:
+  - 3.8.5
+  - 3.7.9
+  - 2.7.18
+
+rust_commands:
+  - bat
+  - starship
+  - exa
+  - zoxide

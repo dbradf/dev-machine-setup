@@ -1,0 +1,21 @@
+- name: install dependencies
+  apt: pkg={{ item }} update_cache=yes
+  sudo: True
+  with_items:
+    - git
+    - zsh
+
+- name: checkout config directory
+  git:
+    repo: git@github.com:dbradf/configfiles.git
+    dest: ~/etc/configfiles
+
+- name: install configuration
+  shell: ./install
+  args:
+    chdir: ~/etc/configfiles
+
+- name: setup zsh
+  user:
+    name: {{ ansible_user_id }}
+    shell: /bin/zsh

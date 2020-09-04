@@ -1,0 +1,11 @@
+- name: Setup development machine
+  hosts: 
+  vars_files: vars.yml
+  pre_tasks:
+    - name: Update the apt cache
+      apt: update_cache=yes
+
+  roles:
+    - role: configuration
+    - role: python
+    - role: rust

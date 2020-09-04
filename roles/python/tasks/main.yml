@@ -1,0 +1,37 @@
+- name: install dependencies
+  apt: pkg={{ item }} update_cache=yes
+  sudo: True
+  with_items:
+    - git
+    - curl
+    - build-essential
+    - libssl-dev
+    - zlib1g-dev
+    - libbz2-dev
+    - libreadline-dev 
+    - libsqlite3-dev 
+    - wget 
+    - llvm 
+    - libncurses5-dev 
+    - libncursesw5-dev
+    - xz-utils 
+    - tk-dev 
+    - libffi-dev 
+    - liblzma-dev 
+    - python-openssl
+
+- name: install pyenv
+  shell: curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+
+- name: install python versions
+  shell: pyenv install {{ item }}
+  with_items: {{ python_versions }}
+
+- name: Configure global python version
+  shell: pyenv glocal {{ python_versions[0] }}
+
+- name: Install pipx
+  shell: pip install pipx
+
+- name: Install poetry
+  shell: pipx install poetry
