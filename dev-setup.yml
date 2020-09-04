@@ -32,6 +32,7 @@
 
   tasks:
     - name: Clone Repos
-      repo: "{{ item.url }}"
-      dest: ~/mongo/{{ item.name }}
+      git:
+        repo: "{{ item.url }}"
+        dest: ~/mongo/{{ item.name }}
       with_items: "{{ mongo_repos }}"
