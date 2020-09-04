@@ -6,6 +6,8 @@
 
 - name: install rustup
   shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  args:
+    creates: ~/.cargo
 
 - name: install rust commands
   shell: cargo install {{ item }}

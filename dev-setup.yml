@@ -16,9 +16,16 @@
         path: ~/.cargo
       register: cargo_stat
 
+    - name: Check for node install
+      stat: 
+        path: ~/.nvm
+      register: nvm_stat
+
   roles:
     - role: configuration
     - role: python
       when: not pyenv_stat.stat.exists
     - role: rust
       when: not cargo_stat.stat.exists
+    - role: node
+      when: not nvm_stat.stat.exists

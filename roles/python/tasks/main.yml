@@ -23,6 +23,8 @@
 
 - name: install pyenv
   shell: curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+  args:
+    creates: ~/.pyenv
 
 - name: install python versions
   shell: |
