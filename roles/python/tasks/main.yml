@@ -47,6 +47,7 @@
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
 
+    pyenv shell {{ python_versions[0] }}
     pip install pipx
 
 - name: Install poetry
@@ -55,4 +56,5 @@
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
 
+    pyenv shell {{ python_versions[0] }}
     pipx install poetry
