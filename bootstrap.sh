@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-virtualenv --system-site-packages --python=python3 venv
+python3 -m venv --system-site-packages venv
 source ./venv/bin/activate
 pip install ansible
 

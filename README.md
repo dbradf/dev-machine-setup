@@ -10,7 +10,8 @@ Currently only supporting Ubuntu.
 
 - [ ] Generate SSH keys
 - [ ] Add public key to github
-- [ ] Install `python3-apt`, `python3-venv`, and `git`
+- [ ] Install `python3-pip`, `python3-apt`, `python3-venv`, and `git`
+- [ ] `pip3 install wheel`
 - [ ] Clone repo
 
 ### Running

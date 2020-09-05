@@ -10,5 +10,7 @@
     creates: ~/.cargo
 
 - name: install rust commands
-  shell: cargo install {{ item }}
+  shell: |
+    export PATH=$HOME/.cargo/bin:$PATH
+    cargo install {{ item }}
   with_items: "{{ rust_commands }}"

@@ -36,3 +36,10 @@
         repo: "{{ item.url }}"
         dest: ~/mongo/{{ item.name }}
       with_items: "{{ mongo_repos }}"
+    - name: install dependencies
+      apt: 
+        pkg: 
+          - tmux
+          - python3-neovim
+        update_cache: yes
+      become: True
