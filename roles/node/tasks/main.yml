@@ -5,7 +5,7 @@
   args:
     creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
 
-- name: install python versions
+- name: install node versions
   shell: |
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
