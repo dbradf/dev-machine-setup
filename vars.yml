@@ -19,3 +19,7 @@ mongo_repos:
     url: git@github.com:evergreen-ci/evergreen.py.git
   - name: shrub.py
     url: git@github.com:evergreen-ci/shrub.py.git
+  - name: python-service-tools
+    url: git@github.com:mongodb-labs/python-service-tools.git
+  - name: rietveld-usability-toolkit
+    url: git@github.com:mongodb-labs/Rietveld-Usability-Toolkit.git

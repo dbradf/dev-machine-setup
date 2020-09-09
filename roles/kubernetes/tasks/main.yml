@@ -1,0 +1,22 @@
+- name: Create bin directory
+  file: 
+    path: "{{ bin_directory }}"
+    state: directory
+
+- name: Install kubectl
+  shell: |
+    curl -LO https://storage.googleapis.com/kubernetes-release/release/v{{ kubectl_version }}/bin/linux/amd64/kubectl
+    chmod +x kubectl
+  args: 
+    creates: ~/bin/kubectl
+    chdir: "{{ bin_directory }}"
+
+- name: Install helm
+  shell: |
+    curl -LO https://get.helm.sh/helm-v{{ helm_version }}-linux-amd64.tar.gz
+    tar xf helm*.tar.gz
+    mv linux-amd64/helm {{ bin_directory }}
+  args:
+    creates: ~/bin/helm
+    chdir: /tmp
+ 
